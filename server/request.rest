@@ -1,0 +1,38 @@
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzAxNzEyMzIwfQ.VDuJrqkToo9e5_zC500KwYkmwmXHShh_3PAviRKYrhc
+
+###
+GET http://localhost:3000/user/1
+Content-Type: application/json
+
+{
+    "id": "1"
+}
+
+###
+GET http://localhost:3000/auth/refresh
+
+###
+POST http://localhost:3000/auth/registration
+Content-Type: application/json
+
+{
+    "name": "Jane",
+    "email": "Jane@email.com",
+    "password": "jane"
+}
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "John@email.com",
+    "password": "abc"
+}
+
+###
+DELETE http://localhost:3000/auth/refresh
+
+###
+PUT http://localhost:3000/user/2

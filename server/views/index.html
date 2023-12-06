@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>hello from html</h1>
+
+    <form action="/auth/registration" method="post">
+        <h2>registration</h2>
+        <input name="name" type="text">
+        <input name="email" type="text">
+        <button type="submit">submit</button>
+    </form>
+
+    <form action="/auth/login" method="post">
+        <h2>sign in</h2>
+        <input name="email" type="text">
+        <input name="password" type="text">
+        <button type="submit">sign in</button>
+    </form>
+
+    <form action="/auth/refresh" method="get">
+        <h2>refresh token</h2>
+        <button type="submit">refresh</button>
+    </form>
+
+    <form action="/auth/refresh" method="delete">
+        <h2>log out</h2>
+        <button type="submit">log out</button>
+    </form>
+
+    <form action="/users" method="get">
+        <h2>get all users</h2>
+        <button type="submit">get</button>
+    </form>
+
+    <form action="/user/:id" method="get">
+        <h2>get one user</h2>
+        <input name="id" type="text" placeholder="id: ">
+        <button type="submit">get</button>
+    </form>
+
+    <form action="/user" method="delete">
+        <h2>delete the user</h2>
+        <input name="id" type="text" placeholder="id: ">
+        <button type="submit">delete</button>
+    </form>
+
+    <form action="/user/:id" method="put">
+        <h2>update the user</h2>
+        <input name="id" type="text" placeholder="id: ">
+        <input name="name" type="text" placeholder="new name: ">
+        <input name="email" type="text" placeholder="new email: ">
+        <button type="submit">change</button>
+    </form>
+
+    <footer>
+        <h2>Tools</h2>
+        <ul>
+            <li>Node.js + Express.js</li>
+            <li>PostgreSQL + node-postgres</li>
+            <li>Vue 3 Composition Api + Vue Router + Vuex</li>
+            <li>Libs: nodemon</li>
+        </ul>
+    </footer>
+</body>
+</html>
