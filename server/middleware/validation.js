@@ -2,7 +2,7 @@ import { check, query, validationResult } from "express-validator";
 
 const validationRules = [
   check("email", "It is should be an email").isEmail(),
-  query("password").notEmpty().withMessage("Please enter a password"),
+  check("password").notEmpty().withMessage("Please enter a password"),
 ];
 
 function validation(req, res, next) {
