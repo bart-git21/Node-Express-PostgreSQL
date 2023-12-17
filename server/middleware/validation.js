@@ -1,4 +1,4 @@
-import { check, query, validationResult } from "express-validator";
+import { check, validationResult } from "express-validator";
 
 const validationRules = [
   check("email", "It is should be an email").isEmail(),
