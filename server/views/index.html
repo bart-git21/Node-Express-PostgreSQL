@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script type="module" src="./../index.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
 <body>
     
@@ -40,24 +40,16 @@
         <button type="submit">get</button>
     </form>
 
-    <form action="/user/:id" method="get">
-        <h2>get one user</h2>
-        <input name="id" type="text" placeholder="id: ">
-        <button type="submit">get</button>
-    </form>
+    <form>
+        <h2>get, update or delete the user by id</h2>
 
-    <form action="/user" method="delete">
-        <h2>delete the user</h2>
-        <input name="id" type="text" placeholder="id: ">
-        <button type="submit">delete</button>
-    </form>
+        <input id="userId" name="id" type="text" placeholder="id: ">
+        <input id="userName" name="name" type="text" placeholder="new name: ">
+        <input id="userEmail" name="email" type="text" placeholder="new email: ">
 
-    <form action="/user/:id" method="put">
-        <h2>update the user</h2>
-        <input name="id" type="text" placeholder="id: ">
-        <input name="name" type="text" placeholder="new name: ">
-        <input name="email" type="text" placeholder="new email: ">
-        <button type="submit">change</button>
+        <button type="submit" id="getUserBtn">get</button>
+        <button type="submit" id="postUserBtn">change</button>
+        <button type="submit" id="deleteUserBtn">delete</button>
     </form>
 
     <footer>
@@ -65,9 +57,8 @@
         <ul>
             <li>Backend: Node.js + Express.js + Express-validator</li>
             <li>Database: PostgreSQL + node-postgres</li>
-            <li>Frontend: Vue 3 Composition Api + Vue Router + Vuex</li>
             <li>Libs: nodemon + dotenv</li>
-            <li>Bundler: Vite</li>
+            <li>Bundler: Webpack</li>
         </ul>
     </footer>
 </body>

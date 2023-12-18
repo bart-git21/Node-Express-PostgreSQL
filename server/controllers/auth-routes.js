@@ -54,6 +54,7 @@ const authRoutes = {
   },
 
   refresh: (req, res) => {
+    console.log("from refresh  controller");
     try {
       const refreshToken = req.cookies.refresh_token;
       jwt.verify(

@@ -12,7 +12,7 @@ router.delete("/auth/refresh", authorization, controller.logout);
 
 router.get("/users", authorization, controller.getUsers);
 router.get("/user/:id", controller.getOneUser);
-router.delete("/user", controller.deleteUser);
-router.put("/user/:id", controller.updateUser);
+router.post("/user/:id", authorization, controller.updateUser);
+router.delete("/user/:id", controller.deleteUser);
 
 export { router };
