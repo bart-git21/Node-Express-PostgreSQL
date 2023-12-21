@@ -66,14 +66,14 @@ const authRoutes = {
           const tokens = jwtToken(payload);
           res.cookie("access_token", tokens.accessToken, { httpOnly: true });
           //   res.cookie("refresh_token", tokens.refreshToken, { httpOnly: true });
-          res.json({
+          res.status(200).json({
             "access token: ": tokens.accessToken,
             "refresh token:": tokens.refreshToken,
           });
         }
       );
     } catch (err) {
-      console.error("error from refresh: ", err);
+      console.error("error from refresh: ", err.message);
     }
   },
 

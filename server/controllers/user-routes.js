@@ -12,38 +12,32 @@ const userRoutes = {
   },
 
   getOneUser: async (req, res) => {
-    console.log("body: ", req.body);
-    console.log("params: ", req.params);
     try {
       const id = req.params.id;
       const result = await db.query("SELECT * FROM users WHERE id = $1", [id]);
-      res.send(result.rows[0]);
+      res.status(200).send(result.rows[0]);
     } catch (err) {
-      console.error("Find error:", err);
+      console.error("Find error:", err.message);
     }
   },
 
   updateUser: (req, response) => {
-    console.log(req.body);
-    console.log(req.params);
     try {
       const { id } = req.body;
       db.query("SELECT * FROM users WHERE id = $1", [id], (err, res) => {
-        return response.json(res.rows[0]);
+        return response.status(200).json({"updated user: ": res.rows[0]});
       });
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
     }
   },
 
   deleteUser: async (req, res) => {
-    console.log(req.body);
-    console.log(req.params);
     try {
       const { id } = req.body;
       console.log(id);
       const result = await db.query("SELECT * FROM users WHERE id = $1", [id]);
-        res.json({ "result: ": result.rows[0], "deleted id:": id });
+        res.status(200).json({ "result: ": result.rows[0], "deleted id:": id });
     } catch (err) {
       res.json({ "error from delete function:": err.message });
     }
