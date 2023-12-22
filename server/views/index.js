@@ -5,6 +5,8 @@ const userEmail = document.querySelector("#userEmail");
 const getUserBtn = document.querySelector("#getUserBtn");
 const postUserBtn = document.querySelector("#postUserBtn");
 const deleteUserBtn = document.querySelector("#deleteUserBtn");
+const authRefreshBtn = document.querySelector("#authRefresh");
+const authLogOutBtn = document.querySelector("#authLogOut");
 
 async function getUserById() {
   try {
@@ -65,6 +67,32 @@ async function deleteUserById() {
     console.error("error from deleteUserById:", err.message);
   }
 }
+async function tokenRefresh() {
+    try {
+        const response = await fetch("/auth/refresh", {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+        })
+        const data = await response.json();
+        console.log(data);
+    } catch(err) {console.error("error from refresh token function", err.message)}
+}
+async function tokenDelete() {
+    try {
+        const response = await fetch("/auth/refresh", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "COntent-Type": "application/json",
+            }
+        })
+        const data = await response.json();
+        console.log(data);
+    } catch(err) {console.error("error from delete token function", err.message)}
+}
 
 getUserBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -77,4 +105,12 @@ postUserBtn.addEventListener("click", (e) => {
 deleteUserBtn.addEventListener("click", (e) => {
   e.preventDefault();
   deleteUserById();
+});
+authRefreshBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  tokenRefresh();
+});
+authLogOutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  tokenDelete();
 });

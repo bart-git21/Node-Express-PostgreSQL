@@ -11,7 +11,7 @@ router.get("/auth/refresh", controller.refresh);
 router.delete("/auth/refresh", authorization, controller.logout);
 
 router.get("/users", authorization, controller.getUsers);
-router.get("/user/:id", controller.getOneUser);
+router.get("/user/:id", authorization, controller.getOneUser);
 router.post("/user/:id", authorization, controller.updateUser);
 router.delete("/user/:id", controller.deleteUser);
 
